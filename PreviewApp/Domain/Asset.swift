@@ -20,6 +20,10 @@ struct Asset {
     
 }
 
+extension Asset: CustomStringConvertible {
+    var description: String { return "\(id)_\(title)" }
+}
+
 extension Asset: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

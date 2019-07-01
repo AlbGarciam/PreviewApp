@@ -20,7 +20,7 @@ struct AssetRepository {
             asset.makeRequest(completion: { result in
                 switch result {
                 case .success(let localUrl):
-                    downloadSuccess(asset: asset, localURl: localUrl)
+                    downloadSuccess(asset: asset, tempURL: localUrl)
                 case .failure(_):
                     downloadFailed(asset: asset)
                 }
@@ -28,11 +28,12 @@ struct AssetRepository {
         }
     }
     
-    static private func downloadSuccess(asset: Asset, localURl: URL) {
-        guard let destination = getDestinationPath(for: asset),
-            moveFile(from: localURl, to: destination) else { return }
+    static private func downloadSuccess(asset: Asset, tempURL: URL) {
+        let fileManager = FileManager.default
+        guard let destURL = fileManager.getDestinationPath(for: asset.description, filetype: "mp4"),
+            fileManager.moveAndReplace(from: tempURL, to: destURL) else { return }
         
-        let localAsset = Asset(id: asset.id, title: asset.title, subTitle: asset.subTitle, resource: destination)
+        let localAsset = Asset(id: asset.id, title: asset.title, subTitle: asset.subTitle, resource: destURL)
         UserDefaults.standard.removeFromSet(value: asset, forKey: UserDefaultsKeys.pendingDownloads)
         UserDefaults.standard.saveInSet(value: localAsset, forKey:  UserDefaultsKeys.playlist)
         // Notify
@@ -42,30 +43,5 @@ struct AssetRepository {
     static private func downloadFailed(asset: Asset) {
         UserDefaults.standard.removeFromSet(value: asset, forKey: UserDefaultsKeys.pendingDownloads)
         // Notify
-    }
-    
-    static private func moveFile(from origin: URL, to destination: URL) -> Bool {
-        do {
-            try? FileManager.default.removeItem(at: destination)
-            try FileManager.default.copyItem(at: origin, to: destination)
-            NSLog("File copied to \(destination.absoluteString)")
-            return true
-        } catch {
-            NSLog("MoveFile:%@", error.localizedDescription)
-            return false
-        }
-    }
-    
-    static private func getDestinationPath(for asset: Asset) -> URL? {
-        let fileManager = FileManager.default
-        let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-        guard var documentsURL = url.first?.absoluteString else { return nil }
-        
-        if documentsURL.last != "/" {
-            documentsURL.append("/")
-        }
-        
-        let pathString = String(format: "%@%@.mp4", documentsURL, asset.id)
-        return URL(string: pathString)
     }
 }
