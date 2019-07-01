@@ -9,10 +9,19 @@
 import Foundation
 
 struct AssetRepository {
+    /// Pending assets, their download can be in progress
     static var pendingDownloads: Set<Asset> {
         return UserDefaults.standard.getSet(forKey: UserDefaultsKeys.pendingDownloads) ?? Set()
     }
     
+    /// Downloaded assets
+    static var downloadedAssets: Set<Asset> {
+        return UserDefaults.standard.getSet(forKey: UserDefaultsKeys.playlist) ?? Set()
+    }
+    
+    /// Fetchs all Assets from a given payload and reinitiates pending downloads
+    ///
+    /// - Parameter payload: Payload to be fetched
     static func fetch(payload: Payload) {
         let assets = pendingDownloads.union(payload.playlist) // Recover pending downloads
         assets.forEach { (asset) in
@@ -28,6 +37,11 @@ struct AssetRepository {
         }
     }
     
+    /// Moves the downloaded file from temp directory to documents directory
+    ///
+    /// - Parameters:
+    ///   - asset: downloaded asset
+    ///   - tempURL: temp url
     static private func downloadSuccess(asset: Asset, tempURL: URL) {
         let fileManager = FileManager.default
         guard let destURL = fileManager.getDestinationPath(for: asset.description, filetype: "mp4"),
@@ -40,6 +54,9 @@ struct AssetRepository {
         
     }
     
+    /// Removes asset from pending downloads because it can be assumed that the resource file cannot be downloaded
+    ///
+    /// - Parameter asset: Asset which has failed
     static private func downloadFailed(asset: Asset) {
         UserDefaults.standard.removeFromSet(value: asset, forKey: UserDefaultsKeys.pendingDownloads)
         // Notify
