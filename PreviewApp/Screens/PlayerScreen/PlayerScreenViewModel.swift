@@ -20,6 +20,8 @@ class PlayerScreenViewModel {
     //MARK: - States
     private let assets: Set<Asset>
     
+    private var currentAssetPosition = 0
+    
     //MARK: - Initializers
     init(assets: Set<Asset>) {
         self.assets = assets
@@ -35,9 +37,23 @@ class PlayerScreenViewModel {
         
     }
     
+    func onPlayerFailed() {
+        
+    }
+    
+    func onPlayerFinished() {
+        guard let next = nextAsset() else { return }
+        view?.updateAsset(next)
+    }
+    
     //MARK: - Private methods
     
-    
+    private func nextAsset() -> Asset? {
+        let shouldStartSequence = currentAssetPosition + 1 >= assets.count
+        currentAssetPosition =  shouldStartSequence ? 0 : currentAssetPosition + 1
+        guard currentAssetPosition >= 0 && currentAssetPosition < assets.count else { return nil}
+        return Array(assets)[currentAssetPosition]
+    }
 }
 
 //MARK: - Extensions

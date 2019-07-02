@@ -16,6 +16,13 @@ protocol VideoPlayerDelegate: AnyObject {
     func didFailedToReachEnd(_ player: VideoPlayer)
 }
 
+extension VideoPlayerDelegate {
+    func videoPlayer(_ player: VideoPlayer, didUpdatedStatus status: AVPlayer.Status) { }
+    func videoPlayer(_ player: VideoPlayer, didUpdatedProgress progress: Double) { }
+    func didReachedEnd(_ player: VideoPlayer) { }
+    func didFailedToReachEnd(_ player: VideoPlayer) { }
+}
+
 let videoContext: UnsafeMutableRawPointer? = nil
 
 class VideoPlayer: NSObject {
@@ -26,7 +33,7 @@ class VideoPlayer: NSObject {
     private var urlAsset:AVURLAsset?
     private var videoOutput:AVPlayerItemVideoOutput?
     
-    private var assetDuration:Double = 0
+    private(set) var assetDuration:Double = 0
     private weak var playerView:PlayerView?
     
     private var autoPlay:Bool = true

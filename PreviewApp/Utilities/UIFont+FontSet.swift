@@ -9,10 +9,10 @@
 import UIKit
 
 extension UIFont {
-    static var Title: UIFont { return UIFont(font: .SFUIText, weight: .bold, size: 24)! }
-    static var Subtitle: UIFont { return UIFont(font: .SFUIText, weight: .regular, size: 16)! }
+    static var Title: UIFont { return UIFont(font: .SFUIDisplay, weight: .light, size: 40)! }
+    static var Subtitle: UIFont { return UIFont(font: .SFUIDisplay, weight: .regular, size: 32)! }
     static var Parragraph: UIFont { return UIFont(font: .SFUIText, weight: .regular, size: 14)! }
-    static var Subitem: UIFont { return UIFont(font: .SFUIText, weight: .light, size: 14)! }
+    static var Subitem: UIFont { return UIFont(font: .SFUIText, weight: .heavy, size: 14)! }
     
     enum Font: String {
         case SFUIText = "SFUIText"
@@ -29,7 +29,6 @@ extension UIFont {
         case .semibold: return "Semibold"
         case .bold: return "Bold"
         case .heavy: return "Heavy"
-        case .black: return "Black"
         default: return nil
         }
     }
