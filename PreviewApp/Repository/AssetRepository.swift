@@ -24,21 +24,17 @@ struct AssetRepository {
     /// - Parameter payload: Payload to be fetched
     static func fetch(payload: Payload) {
         let assets = pendingDownloads.union(payload.playlist) // Recover pending downloads
-        let semaphore = DispatchSemaphore(value: 0)
         assets.forEach { (asset) in
-            DispatchQueue(label: "Download").sync {
-                UserDefaults.standard.saveInSet(value: asset, forKey:  UserDefaultsKeys.pendingDownloads)
-                asset.makeRequest(completion: { result in
-                    switch result {
-                    case .success(let localUrl):
-                        downloadSuccess(asset: asset, tempURL: localUrl)
-                    case .failure(_):
-                        downloadFailed(asset: asset)
-                    }
-                    semaphore.signal()
-                })
-                semaphore.wait()
-            }
+            UserDefaults.standard.saveInSet(value: asset, forKey:  UserDefaultsKeys.pendingDownloads)
+            asset.makeRequest(completion: { result in
+                switch result {
+                case .success(let localUrl):
+                    downloadSuccess(asset: asset, tempURL: localUrl)
+                case .failure(_):
+                    downloadFailed(asset: asset)
+                }
+            })
+            
         }
     }
     

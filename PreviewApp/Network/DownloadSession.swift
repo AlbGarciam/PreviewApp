@@ -9,13 +9,15 @@
 import Foundation
 
 struct DownloadSession {
+    private static var semaphore = DispatchSemaphore(value: 0)
+    
     static func request<Request: DownloadRequest>(_ request: Request, _ completion: Request.DownloadRequestCompletion?) {
         
         let request = request.getRequest()
         let session = URLSession.shared
-        
         NSLog("Fetching file from endpoint: \(request.url?.absoluteString ?? "No endpoint")")
         let task = session.downloadTask(with: request) { (file, response, error) in
+            semaphore.signal()
             let urlString = request.url?.absoluteString ?? "No URL"
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
                 return completion?(.failure(.unknown(urlString))) ?? ()
@@ -32,6 +34,9 @@ struct DownloadSession {
             }
         }
         
-        task.resume()
+        DispatchQueue(label: "Download").sync {
+            task.resume()
+            semaphore.wait()
+        }
     }
 }
