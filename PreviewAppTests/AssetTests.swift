@@ -40,6 +40,7 @@ class AssetTests: XCTestCase {
         XCTAssertEqual(asset.title, decoded!.title)
         XCTAssertEqual(asset.subTitle, decoded!.subTitle)
         XCTAssertEqual(asset.resource, decoded!.resource)
+        XCTAssertEqual(asset.filename, decoded!.filename)
     }
     
 }

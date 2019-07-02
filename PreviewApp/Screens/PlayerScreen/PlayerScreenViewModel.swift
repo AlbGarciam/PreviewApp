@@ -31,6 +31,10 @@ class PlayerScreenViewModel {
         view?.updateAsset(initialAsset)
     }
     
+    func onAssetFailed(asset: Asset) {
+        
+    }
+    
     //MARK: - Private methods
     
     

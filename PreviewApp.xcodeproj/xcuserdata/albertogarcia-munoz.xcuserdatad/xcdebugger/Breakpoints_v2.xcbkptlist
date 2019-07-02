@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PreviewApp/CustomViews/VideoPlayer.swift"
-            timestampString = "583777971.277743"
+            filePath = "PreviewApp/Screens/PlayerScreen/PlayerScreenViewController.swift"
+            timestampString = "583783376.262256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "init(urlAsset:view:autoplay:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "updatePlayer(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PreviewApp/CustomViews/VideoPlayer.swift"
-            timestampString = "583777971.277846"
+            filePath = "PreviewApp/Screens/PlayerScreen/PlayerScreenViewController.swift"
+            timestampString = "583783376.262584"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "playerItemDidReachEnd()"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "updatePlayer(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,8 +41,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PreviewApp/CustomViews/VideoPlayer.swift"
-            timestampString = "583777971.277914"
+            filePath = "PreviewApp/Screens/CustomViews/VideoPlayer.swift"
+            timestampString = "583783376.262647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "137"
@@ -57,12 +57,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PreviewApp/CustomViews/VideoPlayer.swift"
-            timestampString = "583777971.277972"
+            filePath = "PreviewApp/Screens/CustomViews/VideoPlayer.swift"
+            timestampString = "583783376.262836"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "playerItemDidReachEnd()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PreviewApp/Screens/CustomViews/VideoPlayer.swift"
+            timestampString = "583783376.262886"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "didFailedToPlayToEnd()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PreviewApp/Screens/CustomViews/VideoPlayer.swift"
+            timestampString = "583783376.262931"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "playerDidChangeStatus(status:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -73,40 +105,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PreviewApp/CustomViews/VideoPlayer.swift"
-            timestampString = "583777971.278024"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "addPeriodicalObserver()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PreviewApp/CustomViews/VideoPlayer.swift"
-            timestampString = "583777971.278074"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "addPeriodicalObserver()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PreviewApp/CustomViews/VideoPlayer.swift"
-            timestampString = "583777971.278139"
+            filePath = "PreviewApp/Screens/CustomViews/VideoPlayer.swift"
+            timestampString = "583783376.262975"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "171"
@@ -121,13 +121,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PreviewApp/Screens/PlayerScreen/PlayerScreenViewController.swift"
-            timestampString = "583777971.278203"
+            filePath = "PreviewApp/Screens/CustomViews/VideoPlayer.swift"
+            timestampString = "583783376.263018"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "updatePlayer(for:)"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "addPeriodicalObserver()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

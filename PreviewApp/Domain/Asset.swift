@@ -13,9 +13,15 @@ struct Asset {
     let title: String
     let subTitle: String?
     let resource: URL
+    let filename: String?
+    
+    var localFile: URL? {
+        guard let filename = filename else { return nil }
+        return URL(fileURLWithPath: filename, relativeTo: FileManager.default.documentsURL)
+    }
 
-    init(id: String, title: String, subTitle: String? = nil, resource: URL) {
-        (self.id, self.title, self.subTitle, self.resource) = (id, title, subTitle, resource)
+    init(id: String, title: String, subTitle: String? = nil, resource: URL, filename: String? = nil) {
+        (self.id, self.title, self.subTitle, self.resource, self.filename) = (id, title, subTitle, resource, filename)
     }
     
 }
@@ -36,6 +42,7 @@ extension Asset: Codable {
         case title
         case subtitle
         case resource
+        case filename
     }
     
     init(from decoder: Decoder) throws {
@@ -43,9 +50,9 @@ extension Asset: Codable {
         let id = try container.decode(String.self, forKey: .id)
         let title = try container.decode(String.self, forKey: .title)
         let subtitle = try container.decodeIfPresent(String.self, forKey: .subtitle)
-        let resourceStr = try container.decode(String.self, forKey: .resource)
-        let resource = URL(fileURLWithPath: resourceStr)
-        self.init(id: id, title: title, subTitle: subtitle, resource: resource)
+        let resource = try container.decode(URL.self, forKey: .resource)
+        let filename = try container.decodeIfPresent(String.self, forKey: .filename)
+        self.init(id: id, title: title, subTitle: subtitle, resource: resource, filename: filename)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -54,6 +61,7 @@ extension Asset: Codable {
         try container.encode(title, forKey: .title)
         try container.encodeIfPresent(subTitle, forKey: .subtitle)
         try container.encode(resource.absoluteString, forKey: .resource)
+        try container.encodeIfPresent(filename, forKey: .filename)
     }
 }
 

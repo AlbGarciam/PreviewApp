@@ -44,11 +44,16 @@ struct AssetRepository {
     ///   - tempURL: temp url
     static private func downloadSuccess(asset: Asset, tempURL: URL) {
         let fileManager = FileManager.default
-        guard let destURL = fileManager.getDestinationPath(for: asset.description, filetype: "mp4"),
+        let fileExtension = "mp4"
+        let filename = "\(asset).\(fileExtension)"
+        guard let destURL = fileManager.getDestinationPath(for: asset.description, filetype: fileExtension),
             fileManager.moveAndReplace(from: tempURL, to: destURL) else { return }
-        
-        let localAsset = Asset(id: asset.id, title: asset.title, subTitle: asset.subTitle, resource: destURL)
         UserDefaults.standard.removeFromSet(value: asset, forKey: UserDefaultsKeys.pendingDownloads)
+        let localAsset = Asset(id: asset.id,
+                               title: asset.title,
+                               subTitle: asset.subTitle,
+                               resource: asset.resource,
+                               filename: filename)
         UserDefaults.standard.saveInSet(value: localAsset, forKey:  UserDefaultsKeys.playlist)
         // Notify
         

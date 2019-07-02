@@ -43,7 +43,11 @@ class PlayerScreenViewController: UIViewController {
     }
     
     private func updatePlayer(for asset: Asset) {
-        videoPlayer = VideoPlayer(urlAsset: asset.resource, view: playerView)
+        if let localFile = asset.localFile {
+            videoPlayer = VideoPlayer(urlAsset: localFile, view: playerView)
+        } else {
+            viewModel.onAssetFailed(asset: asset)
+        }
     }
 }
 

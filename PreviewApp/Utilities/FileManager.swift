@@ -9,6 +9,18 @@
 import Foundation
 
 extension FileManager {
+    var documentsURL: URL {
+        let docs = urls(for: .documentDirectory, in: .userDomainMask)
+        return docs.first! // iOS always has documents path
+    }
+    
+    var documentsPath: String {
+        var docsStr = documentsURL.absoluteString
+        if docsStr.last != "/" {
+            docsStr.append("/")
+        }
+        return docsStr
+    }
     
     func moveAndReplace(from origin: URL, to destination: URL) -> Bool {
         do {
@@ -23,14 +35,7 @@ extension FileManager {
     }
     
     func getDestinationPath(for resourceName: String, filetype: String) -> URL? {
-        let docs = urls(for: .documentDirectory, in: .userDomainMask)
-        guard var docsStr = docs.first?.absoluteString else { return nil }
-        
-        if docsStr.last != "/" {
-            docsStr.append("/")
-        }
-        
-        let pathString = "\(docsStr)\(resourceName).\(filetype)"
+        let pathString = "\(documentsPath)\(resourceName).\(filetype)"
         return URL(string: pathString)
     }
 }
