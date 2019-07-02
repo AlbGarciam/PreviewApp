@@ -28,7 +28,6 @@ struct DownloadSession {
                     guard let path = file, (response?.expectedContentLength ?? 0) > 0 else {
                         return completion?(.failure(.empty(urlString))) ?? ()
                     }
-                    NSLog("File fetched from endpoint: \(file?.absoluteString ?? "No endpoint")")
                     return completion?(.success(path)) ?? ()
                 default:
                     let error = DownloadErrorResponse.init(statusCode, error?.localizedDescription ?? "No description", urlString)

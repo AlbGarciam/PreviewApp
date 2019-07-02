@@ -43,7 +43,8 @@ extension Asset: Codable {
         let id = try container.decode(String.self, forKey: .id)
         let title = try container.decode(String.self, forKey: .title)
         let subtitle = try container.decodeIfPresent(String.self, forKey: .subtitle)
-        let resource = try container.decode(URL.self, forKey: .resource)
+        let resourceStr = try container.decode(String.self, forKey: .resource)
+        let resource = URL(fileURLWithPath: resourceStr)
         self.init(id: id, title: title, subTitle: subtitle, resource: resource)
     }
     
