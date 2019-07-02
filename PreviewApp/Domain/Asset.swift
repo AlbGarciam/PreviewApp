@@ -27,7 +27,7 @@ struct Asset {
 }
 
 extension Asset: CustomStringConvertible {
-    var description: String { return "\(id)_\(title)" }
+    var description: String { return "\(id)" }
 }
 
 extension Asset: Hashable {

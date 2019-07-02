@@ -39,6 +39,14 @@ class PlayerScreenViewController: UIViewController {
     
     //MARK: - UI Lifecycle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(leftSwipePerformed))
+        leftSwipe.direction = .left
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(leftSwipe)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.viewReady()
@@ -64,6 +72,10 @@ class PlayerScreenViewController: UIViewController {
             viewModel.onAssetFailed(asset: asset)
         }
     }
+    
+    @objc private func leftSwipePerformed() {
+        viewModel.finishAsset()
+    }
 }
 
 //MARK: - ViewModel communication
@@ -75,24 +87,5 @@ extension PlayerScreenViewController: PlayerScreenViewControllerProtocol {
     func updateAsset(_ asset: Asset) {
         updateUI(for: asset)
         updatePlayer(for: asset)
-    }
-}
-
-extension PlayerScreenViewController: VideoPlayerDelegate {
-    
-    func videoPlayer(_ player: VideoPlayer, didUpdatedProgress progress: Double) {
-        let remaining = player.assetDuration - (progress * player.assetDuration)
-        durationLabel.text = remaining.remainingSeconds
-        progressView.progress = CGFloat(progress)
-    }
-    
-    func didReachedEnd(_ player: VideoPlayer) {
-        progressView.progress = 1
-        videoPlayer = nil
-        viewModel.onPlayerFinished()
-    }
-    
-    func didFailedToReachEnd(_ player: VideoPlayer) {
-        viewModel.onPlayerFailed()
     }
 }

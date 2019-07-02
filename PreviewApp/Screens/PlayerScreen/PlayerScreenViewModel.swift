@@ -18,41 +18,52 @@ class PlayerScreenViewModel {
     var router: PlayerScreenRouter?
     
     //MARK: - States
-    private let assets: Set<Asset>
-    
-    private var currentAssetPosition = 0
+    private let assets: [Asset]
+    private var currentAsset: Asset! {
+        didSet {
+            view?.updateAsset(currentAsset)
+        }
+    }
     
     //MARK: - Initializers
     init(assets: Set<Asset>) {
-        self.assets = assets
+        self.assets = Array(assets)
     }
     
     //MARK: - Public methods
     func viewReady() {
         guard let initialAsset = assets.first else { return }
-        view?.updateAsset(initialAsset)
+        currentAsset = initialAsset
     }
     
     func onAssetFailed(asset: Asset) {
-        
+        loadNext()
     }
     
     func onPlayerFailed() {
-        
+        loadNext()
     }
     
     func onPlayerFinished() {
-        guard let next = nextAsset() else { return }
-        view?.updateAsset(next)
+        loadNext()
+    }
+    
+    func finishAsset() {
+        loadNext()
     }
     
     //MARK: - Private methods
     
+    private func loadNext() {
+        guard let next = nextAsset() else { return }
+        currentAsset = next
+    }
+    
     private func nextAsset() -> Asset? {
-        let shouldStartSequence = currentAssetPosition + 1 >= assets.count
-        currentAssetPosition =  shouldStartSequence ? 0 : currentAssetPosition + 1
-        guard currentAssetPosition >= 0 && currentAssetPosition < assets.count else { return nil}
-        return Array(assets)[currentAssetPosition]
+        guard !assets.isEmpty else { return nil }
+        var position = assets.firstIndex(of: currentAsset) ?? 0
+        position = (position + 1) % assets.count
+        return assets[position]
     }
 }
 

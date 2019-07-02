@@ -30,6 +30,7 @@
 		F80C28EE22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28ED22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift */; };
 		F85789C622CBDC50008C9B76 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85789C522CBDC50008C9B76 /* CustomProgressBar.swift */; };
 		F85789C822CBE4D3008C9B76 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85789C722CBE4D3008C9B76 /* TimeInterval.swift */; };
+		F85789CA22CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */; };
 		F8B3CA2D22CA4EE200DB518C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B3CA2C22CA4EE200DB518C /* AppDelegate.swift */; };
 		F8B3CA3422CA4EE300DB518C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8B3CA3322CA4EE300DB518C /* Assets.xcassets */; };
 		F8B3CA3722CA4EE300DB518C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B3CA3522CA4EE300DB518C /* LaunchScreen.storyboard */; };
@@ -80,6 +81,7 @@
 		F80C28ED22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+Autolayout.swift"; sourceTree = "<group>"; };
 		F85789C522CBDC50008C9B76 /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
 		F85789C722CBE4D3008C9B76 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+VideoPlayer.swift"; sourceTree = "<group>"; };
 		F8B3CA2922CA4EE200DB518C /* PreviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PreviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B3CA2C22CA4EE200DB518C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8B3CA3322CA4EE300DB518C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				F80C28E222CBA03A00CF3F7B /* PlayerScreenRouter.swift */,
 				F80C28E422CBA03A00CF3F7B /* PlayerScreenViewModel.swift */,
 				F80C28E322CBA03A00CF3F7B /* PlayerScreenViewController.swift */,
+				F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */,
 				F80C28ED22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift */,
 			);
 			path = PlayerScreen;
@@ -415,6 +418,7 @@
 			files = (
 				F80C28CB22CA83B900CF3F7B /* DownloadErrorResponse.swift in Sources */,
 				F80C28B922CA78B200CF3F7B /* Payload.swift in Sources */,
+				F85789CA22CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift in Sources */,
 				F80C28C922CA82A100CF3F7B /* DownloadSession.swift in Sources */,
 				F85789C622CBDC50008C9B76 /* CustomProgressBar.swift in Sources */,
 				F85789C822CBE4D3008C9B76 /* TimeInterval.swift in Sources */,

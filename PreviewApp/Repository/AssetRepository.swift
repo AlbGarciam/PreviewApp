@@ -24,16 +24,21 @@ struct AssetRepository {
     /// - Parameter payload: Payload to be fetched
     static func fetch(payload: Payload) {
         let assets = pendingDownloads.union(payload.playlist) // Recover pending downloads
+        let semaphore = DispatchSemaphore(value: 0)
         assets.forEach { (asset) in
-            UserDefaults.standard.saveInSet(value: asset, forKey:  UserDefaultsKeys.pendingDownloads)
-            asset.makeRequest(completion: { result in
-                switch result {
-                case .success(let localUrl):
-                    downloadSuccess(asset: asset, tempURL: localUrl)
-                case .failure(_):
-                    downloadFailed(asset: asset)
-                }
-            })
+            DispatchQueue(label: "Download").sync {
+                UserDefaults.standard.saveInSet(value: asset, forKey:  UserDefaultsKeys.pendingDownloads)
+                asset.makeRequest(completion: { result in
+                    switch result {
+                    case .success(let localUrl):
+                        downloadSuccess(asset: asset, tempURL: localUrl)
+                    case .failure(_):
+                        downloadFailed(asset: asset)
+                    }
+                    semaphore.signal()
+                })
+                semaphore.wait()
+            }
         }
     }
     
@@ -63,6 +68,7 @@ struct AssetRepository {
     ///
     /// - Parameter asset: Asset which has failed
     static private func downloadFailed(asset: Asset) {
+        NSLog("Download failed: \(asset.resource)")
         UserDefaults.standard.removeFromSet(value: asset, forKey: UserDefaultsKeys.pendingDownloads)
         // Notify
     }
