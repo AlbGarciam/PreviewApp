@@ -30,16 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         NSLog("Remote notification = %@", userInfo)
-        guard let notification = userInfo as? JSON else {
-            return completionHandler(.noData)
-        }
+        guard let notification = userInfo as? JSON else { return completionHandler(.noData) }
         NotificationManager.handleNotification(notification: notification, completion: completionHandler)
     }
     
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let tokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-        print("Device Token: \(tokenString)")
+        print("Device Token: \(tokenString)") // Once backend is ready, send token to a backend
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

@@ -20,7 +20,6 @@
 		F80C28D422CA8BDE00CF3F7B /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28D322CA8BDE00CF3F7B /* UserDefaults.swift */; };
 		F80C28D722CA8C4D00CF3F7B /* AssetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28D622CA8C4D00CF3F7B /* AssetRepository.swift */; };
 		F80C28D922CA97D700CF3F7B /* SamplePayload.json in Resources */ = {isa = PBXBuildFile; fileRef = F80C28C322CA7CFA00CF3F7B /* SamplePayload.json */; };
-		F80C28DB22CA989800CF3F7B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28B622CA771F00CF3F7B /* Utilities.swift */; };
 		F80C28DD22CAAF7200CF3F7B /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28DC22CAAF7200CF3F7B /* FileManager.swift */; };
 		F80C28DF22CB9E7500CF3F7B /* AssetMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28DE22CB9E7500CF3F7B /* AssetMapperTests.swift */; };
 		F80C28E622CBA03A00CF3F7B /* PlayerScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28E222CBA03A00CF3F7B /* PlayerScreenRouter.swift */; };
@@ -33,6 +32,11 @@
 		F85789CA22CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */; };
 		F8849FE522CD11DF0040804F /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FE422CD11DF0040804F /* JSON.swift */; };
 		F8849FE822CD14760040804F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FE722CD14760040804F /* NotificationManager.swift */; };
+		F8849FEB22CD26420040804F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FEA22CD26420040804F /* GradientView.swift */; };
+		F8849FED22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FEC22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift */; };
+		F8849FF122CD28F80040804F /* PlayerScreenViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FF022CD28F80040804F /* PlayerScreenViewController+ScrollView.swift */; };
+		F8849FFF22CD29C80040804F /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FFC22CD29C80040804F /* NowPlayingViewController.swift */; };
+		F884A00022CD29C80040804F /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FFD22CD29C80040804F /* NowPlayingViewModel.swift */; };
 		F8B3CA2D22CA4EE200DB518C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B3CA2C22CA4EE200DB518C /* AppDelegate.swift */; };
 		F8B3CA3422CA4EE300DB518C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8B3CA3322CA4EE300DB518C /* Assets.xcassets */; };
 		F8B3CA3722CA4EE300DB518C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B3CA3522CA4EE300DB518C /* LaunchScreen.storyboard */; };
@@ -86,6 +90,11 @@
 		F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+VideoPlayer.swift"; sourceTree = "<group>"; };
 		F8849FE422CD11DF0040804F /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		F8849FE722CD14760040804F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F8849FEA22CD26420040804F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		F8849FEC22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+NowPlayingSetup.swift"; sourceTree = "<group>"; };
+		F8849FF022CD28F80040804F /* PlayerScreenViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+ScrollView.swift"; sourceTree = "<group>"; };
+		F8849FFC22CD29C80040804F /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		F8849FFD22CD29C80040804F /* NowPlayingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewModel.swift; sourceTree = "<group>"; };
 		F8B3CA2922CA4EE200DB518C /* PreviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PreviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B3CA2C22CA4EE200DB518C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8B3CA3322CA4EE300DB518C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -179,6 +188,7 @@
 		F80C28E022CBA01900CF3F7B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F8849FF222CD29970040804F /* NowPlayingView */,
 				F80C28EA22CBA0BD00CF3F7B /* CustomViews */,
 				F80C28E122CBA02300CF3F7B /* PlayerScreen */,
 			);
@@ -190,9 +200,7 @@
 			children = (
 				F80C28E222CBA03A00CF3F7B /* PlayerScreenRouter.swift */,
 				F80C28E422CBA03A00CF3F7B /* PlayerScreenViewModel.swift */,
-				F80C28E322CBA03A00CF3F7B /* PlayerScreenViewController.swift */,
-				F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */,
-				F80C28ED22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift */,
+				F8849FEE22CD27BB0040804F /* ViewController */,
 			);
 			path = PlayerScreen;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 			children = (
 				F80C28EB22CBA0CE00CF3F7B /* PlayerView.swift */,
 				F85789C522CBDC50008C9B76 /* CustomProgressBar.swift */,
+				F8849FEA22CD26420040804F /* GradientView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -220,6 +229,27 @@
 				F8849FE722CD14760040804F /* NotificationManager.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		F8849FEE22CD27BB0040804F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F80C28E322CBA03A00CF3F7B /* PlayerScreenViewController.swift */,
+				F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */,
+				F80C28ED22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift */,
+				F8849FF022CD28F80040804F /* PlayerScreenViewController+ScrollView.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F8849FF222CD29970040804F /* NowPlayingView */ = {
+			isa = PBXGroup;
+			children = (
+				F8849FFD22CD29C80040804F /* NowPlayingViewModel.swift */,
+				F8849FFC22CD29C80040804F /* NowPlayingViewController.swift */,
+				F8849FEC22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift */,
+			);
+			path = NowPlayingView;
 			sourceTree = "<group>";
 		};
 		F8B3CA2022CA4EE100DB518C = {
@@ -245,8 +275,8 @@
 		F8B3CA2B22CA4EE200DB518C /* PreviewApp */ = {
 			isa = PBXGroup;
 			children = (
-				F8849FE622CD14640040804F /* Notifications */,
 				F8FBB19F22CD0A47005DB0C7 /* PreviewApp.entitlements */,
+				F8849FE622CD14640040804F /* Notifications */,
 				F85789C222CBDA17008C9B76 /* Player */,
 				F80C28E022CBA01900CF3F7B /* Screens */,
 				F80C28D522CA8C3500CF3F7B /* Repository */,
@@ -436,23 +466,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				F80C28CB22CA83B900CF3F7B /* DownloadErrorResponse.swift in Sources */,
+				F884A00022CD29C80040804F /* NowPlayingViewModel.swift in Sources */,
 				F80C28B922CA78B200CF3F7B /* Payload.swift in Sources */,
 				F85789CA22CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift in Sources */,
 				F80C28C922CA82A100CF3F7B /* DownloadSession.swift in Sources */,
 				F85789C622CBDC50008C9B76 /* CustomProgressBar.swift in Sources */,
 				F85789C822CBE4D3008C9B76 /* TimeInterval.swift in Sources */,
 				F8849FE822CD14760040804F /* NotificationManager.swift in Sources */,
+				F8849FF122CD28F80040804F /* PlayerScreenViewController+ScrollView.swift in Sources */,
 				F8849FE522CD11DF0040804F /* JSON.swift in Sources */,
+				F8849FEB22CD26420040804F /* GradientView.swift in Sources */,
 				F80C28DD22CAAF7200CF3F7B /* FileManager.swift in Sources */,
 				F80C28D422CA8BDE00CF3F7B /* UserDefaults.swift in Sources */,
-				F80C28DB22CA989800CF3F7B /* Utilities.swift in Sources */,
 				F80C28D722CA8C4D00CF3F7B /* AssetRepository.swift in Sources */,
 				F80C28CD22CA842E00CF3F7B /* DownloadRequest.swift in Sources */,
 				F8EBA07422CBA35C009FDBF9 /* UIColor+ColorSet.swift in Sources */,
+				F8849FFF22CD29C80040804F /* NowPlayingViewController.swift in Sources */,
 				F80C28BE22CA7B5600CF3F7B /* AssetMapper.swift in Sources */,
 				F80C28EC22CBA0CE00CF3F7B /* PlayerView.swift in Sources */,
 				F80C28E822CBA03A00CF3F7B /* PlayerScreenViewModel.swift in Sources */,
 				F80C28C122CA7B8000CF3F7B /* Mapper.swift in Sources */,
+				F8849FED22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift in Sources */,
 				F80C28E622CBA03A00CF3F7B /* PlayerScreenRouter.swift in Sources */,
 				F8EBA07622CBA3D8009FDBF9 /* UIFont+FontSet.swift in Sources */,
 				F80C28EE22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift in Sources */,

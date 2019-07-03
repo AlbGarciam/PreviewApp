@@ -19,12 +19,9 @@ class PlayerScreenViewController: UIViewController {
     var playerView: PlayerView!
     
     var videoPlayer: VideoPlayer?
+    var nowPlayingView: NowPlayingView!
     
-    var nowPlayingStackView: UIStackView!
-    var nowPlayingTitleLabel: UILabel!
-    var nowPlayingSubTitleLabel: UILabel!
-    var progressView: CustomProgressBar!
-    var durationLabel: UILabel!
+    var scrollView: UIScrollView!
     
     //MARK: - UI Initialization
     
@@ -53,16 +50,6 @@ class PlayerScreenViewController: UIViewController {
     }
     
     //MARK: - UI private methods
-    private func updateUI(for asset: Asset) {
-        nowPlayingTitleLabel.text = asset.title
-        if let text = asset.subTitle {
-            nowPlayingSubTitleLabel.isHidden = false
-            nowPlayingSubTitleLabel.text = text
-        } else {
-            nowPlayingSubTitleLabel.isHidden = true
-        }
-        nowPlayingStackView.layoutIfNeeded()
-    }
     
     private func updatePlayer(for asset: Asset) {
         if let localFile = asset.localFile {
@@ -85,7 +72,7 @@ protocol PlayerScreenViewControllerProtocol: class {
 
 extension PlayerScreenViewController: PlayerScreenViewControllerProtocol {
     func updateAsset(_ asset: Asset) {
-        updateUI(for: asset)
+        nowPlayingView.update(asset: asset)
         updatePlayer(for: asset)
     }
 }
