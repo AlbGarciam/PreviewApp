@@ -18,53 +18,43 @@ class PlayerScreenViewModel {
     var router: PlayerScreenRouter?
     
     //MARK: - States
-    private let assets: [Asset]
-    private var currentAsset: Asset! {
+    private var assets: [Asset] {
+        return Array(AssetRepository.downloadedAssets)
+    }
+    private var currentAsset: Asset? {
         didSet {
-            view?.updateAsset(currentAsset)
+            if let currentAsset = currentAsset {
+                view?.updateAsset(currentAsset)
+            }
         }
     }
     
-    //MARK: - Initializers
-    init(assets: Set<Asset>) {
-        self.assets = Array(assets)
-    }
-    
     //MARK: - Public methods
-    func viewReady() {
-        guard let initialAsset = assets.first else { return }
-        currentAsset = initialAsset
-    }
-    
-    func onAssetFailed(asset: Asset) {
-        loadNext()
-    }
     
     func onPlayerFailed() {
-        loadNext()
+        nextAsset()
     }
     
     func onPlayerFinished() {
-        loadNext()
+        nextAsset()
     }
     
-    func finishAsset() {
-        loadNext()
+    func nextAssetRequested() {
+        nextAsset()
+    }
+    
+    func loadVideo() {
+        guard currentAsset == nil else { return }
+        nextAsset()
     }
     
     //MARK: - Private methods
-    
-    private func loadNext() {
-        guard let next = nextAsset() else { return }
-        currentAsset = next
-    }
-    
-    private func nextAsset() -> Asset? {
-        guard !assets.isEmpty else { return nil }
-        var position = assets.firstIndex(of: currentAsset) ?? 0
-        position = (position + 1) % assets.count
-        return assets[position]
+    private func nextAsset() {
+        var nextAsset = assets.first
+        if let currentAsset = currentAsset, var position = assets.firstIndex(of: currentAsset) {
+            position = (position + 1) % assets.count // Cannot be zero because position will be nil
+            nextAsset = assets[position]
+        }
+        currentAsset = nextAsset
     }
 }
-
-//MARK: - Extensions

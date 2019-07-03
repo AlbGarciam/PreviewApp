@@ -18,7 +18,7 @@ class PlayerScreenViewController: UIViewController {
     //MARK: - UIComponents
     var playerView: PlayerView!
     
-    var videoPlayer: VideoPlayer!
+    var videoPlayer: VideoPlayer?
     
     var nowPlayingStackView: UIStackView!
     var nowPlayingTitleLabel: UILabel!
@@ -49,7 +49,7 @@ class PlayerScreenViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.viewReady()
+        viewModel.loadVideo()
     }
     
     //MARK: - UI private methods
@@ -67,14 +67,14 @@ class PlayerScreenViewController: UIViewController {
     private func updatePlayer(for asset: Asset) {
         if let localFile = asset.localFile {
             videoPlayer = VideoPlayer(urlAsset: localFile, view: playerView)
-            videoPlayer.delegate = self
+            videoPlayer?.delegate = self
         } else {
-            viewModel.onAssetFailed(asset: asset)
+            viewModel.onPlayerFailed()
         }
     }
     
     @objc private func leftSwipePerformed() {
-        viewModel.finishAsset()
+        viewModel.nextAssetRequested()
     }
 }
 

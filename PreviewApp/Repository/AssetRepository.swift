@@ -22,7 +22,7 @@ struct AssetRepository {
     /// Fetchs all Assets from a given payload and reinitiates pending downloads
     ///
     /// - Parameter payload: Payload to be fetched
-    static func fetch(payload: Payload) {
+    static func fetch(payload: Payload, completion: @escaping () -> Void) {
         let assets = pendingDownloads.union(payload.playlist) // Recover pending downloads
         assets.forEach { (asset) in
             UserDefaults.standard.saveInSet(value: asset, forKey:  UserDefaultsKeys.pendingDownloads)
@@ -32,6 +32,11 @@ struct AssetRepository {
                     downloadSuccess(asset: asset, tempURL: localUrl)
                 case .failure(_):
                     downloadFailed(asset: asset)
+                }
+                if pendingDownloads.isEmpty {
+                    DispatchQueue.main.async {
+                        completion()
+                    }
                 }
             })
             

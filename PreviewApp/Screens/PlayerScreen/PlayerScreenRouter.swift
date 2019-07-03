@@ -31,11 +31,10 @@ class PlayerScreenRouter {
 extension PlayerScreenRouter {
     
     private static func configureModule() -> (vc: PlayerScreenViewController, vm: PlayerScreenViewModel, rt: PlayerScreenRouter) {
-        let assets: Set<Asset> = UserDefaults.standard.getSet(forKey: UserDefaultsKeys.playlist) ?? Set()
         
         let viewController = PlayerScreenViewController()
         let router = PlayerScreenRouter()
-        let viewModel = PlayerScreenViewModel(assets: assets)
+        let viewModel = PlayerScreenViewModel()
         
         viewController.viewModel = viewModel
         
