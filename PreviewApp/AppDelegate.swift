@@ -16,16 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let data = Utilities.loadJSON(bundle: Bundle(for: type(of: self)), from: "SamplePayload")
-        do {
-            let payload = try JSONDecoder().decode(Payload.self, from: data!)
-            AssetRepository.fetch(payload: payload)
-        } catch {
-            fatalError(error.localizedDescription)
-        }
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        window!.rootViewController = PlayerScreenRouter.getViewController()
-//        window!.backgroundColor = .black
-//        window!.makeKeyAndVisible()
+//        do {
+//            let payload = try JSONDecoder().decode(Payload.self, from: data!)
+//            AssetRepository.fetch(payload: payload)
+//        } catch {
+//            fatalError(error.localizedDescription)
+//        }
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window!.rootViewController = PlayerScreenRouter.getViewController()
+        window!.backgroundColor = .black
+        window!.makeKeyAndVisible()
         return true
     }
     
