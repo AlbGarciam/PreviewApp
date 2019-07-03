@@ -35,6 +35,7 @@ class PlayerScreenViewController: UIViewController {
     }
     
     //MARK: - UI Lifecycle
+    override var prefersStatusBarHidden: Bool { return true }
     
     override func viewDidLoad() {
         super.viewDidLoad()

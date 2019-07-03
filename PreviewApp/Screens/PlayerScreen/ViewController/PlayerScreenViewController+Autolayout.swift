@@ -9,8 +9,6 @@
 import UIKit
 
 extension PlayerScreenViewController {
-    // vvv Declare all common constraints here vvv
-    var horizontalPadding: CGFloat { return 24.0 }
     private var nowPlayingEstimatedSize: CGSize { return CGSize(width: 320, height: 180) }
     
     func configure() {
@@ -25,10 +23,8 @@ extension PlayerScreenViewController {
         view.addSubview(nowPlayingView)
         
         nowPlayingView.topAnchor.constraint(greaterThanOrEqualTo: view.layoutMarginsGuide.topAnchor).isActive = true
-        nowPlayingView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor,
-                                                constant: horizontalPadding).isActive = true
-        nowPlayingView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor,
-                                                 constant: -horizontalPadding).isActive = true
-        nowPlayingView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
+        nowPlayingView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        nowPlayingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        nowPlayingView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }

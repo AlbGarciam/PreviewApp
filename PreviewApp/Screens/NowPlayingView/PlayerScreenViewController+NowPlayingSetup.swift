@@ -9,13 +9,33 @@
 import UIKit
 
 extension NowPlayingView {
-
+    // vvv Declare all common constraints here vvv
+    private var topPadding: CGFloat { return 32.0 }
+    private var bottomPadding: CGFloat { return 16.0 }
+    private var horizontalPadding: CGFloat { return 24.0 }
+    
     func prepareNowPlaying() {
+        clipsToBounds = false
+        addBackgroundGradient()
         addNowPlayingStackView()
         addNowPlayingTitleLabel()
         addNowPlayingSubTitleLabel()
         addDurationLabel()
         addProgressView()
+        layoutIfNeeded()
+    }
+    
+    private func addBackgroundGradient() {
+        backgroundGradient = GradientView(frame: bounds,
+                                          colors: [UIColor.InitialGradient.cgColor, UIColor.FinalGradient.cgColor],
+                                          locations: [0.0, 1.0])
+        backgroundGradient.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(backgroundGradient)
+        
+        backgroundGradient.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        backgroundGradient.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        backgroundGradient.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        backgroundGradient.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     private func addNowPlayingStackView() {
@@ -28,10 +48,14 @@ extension NowPlayingView {
         
         addSubview(nowPlayingStackView)
         
-        nowPlayingStackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        nowPlayingStackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        nowPlayingStackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        nowPlayingStackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        nowPlayingStackView.topAnchor.constraint(equalTo: topAnchor,
+                                                 constant: topPadding).isActive = true
+        nowPlayingStackView.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                                     constant: horizontalPadding).isActive = true
+        nowPlayingStackView.trailingAnchor.constraint(equalTo: trailingAnchor,
+                                                      constant: -horizontalPadding).isActive = true
+        nowPlayingStackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor,
+                                                    constant: -bottomPadding).isActive = true
     }
     
     private func addNowPlayingTitleLabel() {

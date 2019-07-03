@@ -12,6 +12,8 @@ extension UIColor {
     
     static var DefaultColor: UIColor { return UIColor.init(hexString: "#FFFFFF", alpha: 1.0) }
     static var LightGrayColor: UIColor { return UIColor.init(hexString: "#F5F4FA", alpha: 1.0) }
+    static var InitialGradient: UIColor { return UIColor.init(hexString: "#000000", alpha: 0) }
+    static var FinalGradient: UIColor { return UIColor.init(hexString: "#000000", alpha: 0.5) }
     
     convenience init(hexString: String, alpha: CGFloat = 1.0) {
         let hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)

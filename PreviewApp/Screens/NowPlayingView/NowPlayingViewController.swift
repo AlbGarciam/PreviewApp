@@ -29,6 +29,7 @@ class NowPlayingView: UIView {
     var nowPlayingSubTitleLabel: UILabel!
     var progressView: CustomProgressBar!
     var durationLabel: UILabel!
+    var backgroundGradient: GradientView!
     
     //MARK: - UI Initialization
     
