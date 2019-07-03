@@ -26,7 +26,7 @@ class PayloadTests: XCTestCase {
         XCTAssertNotNil(data)
         do {
             let payload = try JSONDecoder().decode(Payload.self, from: data!)
-            XCTAssertEqual(payload.playlist.count, 5)
+            XCTAssertEqual(payload.playlist.count, 4)
         } catch {
             XCTFail("Cannot parse")
         }
