@@ -11,7 +11,6 @@ import Foundation
 struct DownloadSession {
     
     static func request<Request: DownloadRequest>(_ request: Request, _ completion: Request.DownloadRequestCompletion?) {
-        
         let request = request.getRequest()
         let session = URLSession.shared
         NSLog("Fetching file from endpoint: \(request.url?.absoluteString ?? "No endpoint")")
