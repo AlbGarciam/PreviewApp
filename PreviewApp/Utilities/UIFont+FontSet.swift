@@ -11,6 +11,7 @@ import UIKit
 extension UIFont {
     static var Title: UIFont { return UIFont(font: .SFUIDisplay, weight: .light, size: 40)! }
     static var Subtitle: UIFont { return UIFont(font: .SFUIDisplay, weight: .bold, size: 32)! }
+    static var Compressed: UIFont { return UIFont(font: .SFUIDisplay, weight: .light, size: 24)! }
     static var Parragraph: UIFont { return UIFont(font: .SFUIText, weight: .regular, size: 14)! }
     static var Subitem: UIFont { return UIFont(font: .SFUIText, weight: .heavy, size: 14)! }
     

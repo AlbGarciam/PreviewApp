@@ -20,6 +20,7 @@ extension NowPlayingView {
         addNowPlayingStackView()
         addNowPlayingTitleLabel()
         addNowPlayingSubTitleLabel()
+        addNowPlayingCompressedTitleLabel()
         addDurationLabel()
         addProgressView()
         layoutIfNeeded()
@@ -76,6 +77,16 @@ extension NowPlayingView {
         nowPlayingSubTitleLabel.numberOfLines = 2
         
         nowPlayingStackView.addArrangedSubview(nowPlayingSubTitleLabel)
+    }
+    
+    private func addNowPlayingCompressedTitleLabel() {
+        nowPlayingCompressedTitleLabel = UILabel(frame: nowPlayingStackView.bounds)
+        
+        nowPlayingCompressedTitleLabel.font = .Compressed
+        nowPlayingCompressedTitleLabel.textColor = .DefaultColor
+        nowPlayingCompressedTitleLabel.numberOfLines = 2
+        
+        nowPlayingStackView.addArrangedSubview(nowPlayingCompressedTitleLabel)
     }
     
     private func addDurationLabel() {

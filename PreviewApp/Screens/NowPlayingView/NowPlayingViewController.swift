@@ -27,9 +27,11 @@ class NowPlayingView: UIView {
     var nowPlayingStackView: UIStackView!
     var nowPlayingTitleLabel: UILabel!
     var nowPlayingSubTitleLabel: UILabel!
+    var nowPlayingCompressedTitleLabel: UILabel!
     var progressView: CustomProgressBar!
     var durationLabel: UILabel!
     var backgroundGradient: GradientView!
+    
     
     //MARK: - UI Initialization
     
@@ -55,29 +57,37 @@ class NowPlayingView: UIView {
         durationLabel.text = remaining.remainingSeconds
     }
     
+    var isCompressed: Bool {
+        get { return viewModel.isCompressed }
+        set { viewModel.isCompressed = newValue }
+    }
+    
+    
+    //MARK: - Private vars
+    private var titleText: String { return nowPlayingTitleLabel.text ?? "" }
+    private var subTitleText: String { return nowPlayingSubTitleLabel.text ?? "" }
+    private var compressed: Bool { return nowPlayingTitleLabel.font == .Title }
+    
 }
 
 //MARK: - ViewModel communication
 protocol NowPlayingViewProtocol: class {
-    var titleText: String { get set }
-    var subTitleText: String { get set }
+    var model: NowPlayingModel { get set }
 }
 
 extension NowPlayingView: NowPlayingViewProtocol {
-    var titleText: String {
-        get { return nowPlayingTitleLabel.text ?? "" }
+    var model: NowPlayingModel {
+        get { return NowPlayingModel(title: titleText, subTitle: subTitleText, isCompressed: compressed) }
         set {
-            nowPlayingTitleLabel.text = newValue
-            nowPlayingStackView.layoutIfNeeded()
-        }
-    }
-    
-    var subTitleText: String {
-        get { return nowPlayingSubTitleLabel.text ?? "" }
-        set {
-            nowPlayingSubTitleLabel.isHidden = newValue.isEmpty
-            nowPlayingSubTitleLabel.text = newValue
-            nowPlayingStackView.layoutIfNeeded()
+            nowPlayingSubTitleLabel.isHidden = newValue.subTitle.isEmpty || newValue.isCompressed
+            UIView.animate(withDuration: 0.25, delay: 0, options: .transitionCrossDissolve, animations: {
+                self.nowPlayingTitleLabel.text = newValue.title
+                self.nowPlayingSubTitleLabel.text = newValue.subTitle
+                self.nowPlayingCompressedTitleLabel.text = newValue.title
+                self.nowPlayingTitleLabel.isHidden = newValue.isCompressed
+                self.nowPlayingCompressedTitleLabel.isHidden = !newValue.isCompressed
+                self.nowPlayingStackView.layoutIfNeeded()
+            }, completion: nil)
         }
     }
     

@@ -23,6 +23,15 @@ class PlayerScreenViewController: UIViewController {
     
     var scrollView: UIScrollView!
     
+    //MARK: - Gestures
+    var panGesture: UIPanGestureRecognizer!
+    
+    //MARK: - Constraints
+    var bottomConstraint: NSLayoutConstraint!
+    var topConstraint: NSLayoutConstraint!
+    
+    var initialBottomDistance: CGFloat = 0
+    
     //MARK: - UI Initialization
     
     init() {

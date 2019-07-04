@@ -11,6 +11,8 @@
 
 import Foundation
 
+typealias NowPlayingModel = (title: String, subTitle: String, isCompressed: Bool)
+
 class NowPlayingViewModel {
     
     //MARK: - MVVM
@@ -19,11 +21,25 @@ class NowPlayingViewModel {
     //MARK: - States
     var asset: Asset? {
         didSet {
-            let title = asset?.title ?? ""
-            let subtitle = asset?.subTitle ?? ""
-            view?.titleText = title
-            view?.subTitleText = subtitle
+            view?.model = buildUIModel(when: isCompressed)
         }
     }
     
+    var isCompressed: Bool = false {
+        didSet {
+            guard oldValue != isCompressed else { return }
+            view?.model = buildUIModel(when: isCompressed)
+        }
+    }
+    
+    private func buildUIModel(when compressed: Bool) -> NowPlayingModel {
+        let title = compressed ? comressedText() : (asset?.title ?? "")
+        let subTitle = compressed ? "" : (asset?.subTitle ?? "")
+        return NowPlayingModel(title: title, subTitle: subTitle, isCompressed: isCompressed)
+    }
+    
+    private func comressedText() -> String {
+        let strings = [asset?.title, asset?.subTitle].compactMap { $0 }
+        return strings.joined(separator: " ")
+    }
 }

@@ -14,6 +14,8 @@ extension PlayerScreenViewController {
     func configure() {
         addPlayerView()
         prepareNowPlaying()
+        panGesture = UIPanGestureRecognizer(target: self, action: #selector(onPanGesture(gesture:)))
+        nowPlayingView.addGestureRecognizer(panGesture)
     }
     
     private func prepareNowPlaying() {
@@ -22,9 +24,50 @@ extension PlayerScreenViewController {
         
         view.addSubview(nowPlayingView)
         
-        nowPlayingView.topAnchor.constraint(greaterThanOrEqualTo: view.layoutMarginsGuide.topAnchor).isActive = true
+        topConstraint = nowPlayingView.topAnchor.constraint(greaterThanOrEqualTo: view.layoutMarginsGuide.topAnchor)
+        topConstraint.isActive = true
         nowPlayingView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         nowPlayingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        nowPlayingView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        bottomConstraint = nowPlayingView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+        bottomConstraint.priority = .defaultLow
+        bottomConstraint.isActive = true
+    }
+    
+    @objc private func onPanGesture(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            initialBottomDistance = bottomConstraint.constant
+        case .changed:
+            let yTranslation = gesture.translation(in: view).y + initialBottomDistance
+            let bottomDistance = bottomConstraint.constant
+            let shouldCompress = bottomDistance < -(view.bounds.height / 2)
+            if topConstraint.constant >= 0 {
+                updateBottomConstraint(distance: yTranslation)
+            }
+            nowPlayingView.isCompressed = shouldCompress
+            
+        default:
+            let shouldAnimate = bottomConstraint.constant > 0
+            if shouldAnimate {
+                resetBottomConstraint()
+            }
+        }
+    }
+    
+    private func updateBottomConstraint(distance: CGFloat) {
+        DispatchQueue.main.async { [weak self] in
+            self?.bottomConstraint.constant = distance
+            self?.view.layoutIfNeeded()
+        }
+    }
+    
+    private func resetBottomConstraint() {
+        DispatchQueue.main.async { [weak self] in
+            self?.view.layoutIfNeeded()
+            self?.bottomConstraint.constant = 0
+            UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
+                self?.view.layoutIfNeeded()
+            }, completion: nil)
+        }
     }
 }
