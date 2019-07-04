@@ -27,7 +27,12 @@ class PlayerScreenViewModel {
         }
     }
     
+    private let repository: LocalAssetRepositoryProtocol
+    
     //MARK: - Public methods
+    init(repository: LocalAssetRepositoryProtocol) {
+        self.repository = repository
+    }
     
     func onPlayerFailed() {
         nextAsset()
@@ -47,7 +52,7 @@ class PlayerScreenViewModel {
     }
     
     func reloadDownloadedVideos() {
-        assets = Array(AssetRepository.downloadedAssets).sorted()
+        assets = repository.assets
         view?.updateAssets()
         loadVideo()
     }

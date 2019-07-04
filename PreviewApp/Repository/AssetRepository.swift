@@ -14,11 +14,6 @@ struct AssetRepository {
         return UserDefaults.standard.getSet(forKey: UserDefaultsKeys.pendingDownloads) ?? Set()
     }
     
-    /// Downloaded assets
-    static var downloadedAssets: Set<Asset> {
-        return UserDefaults.standard.getSet(forKey: UserDefaultsKeys.playlist) ?? Set()
-    }
-    
     /// Fetchs all Assets from a given payload and reinitiates pending downloads
     ///
     /// - Parameter payload: Payload to be fetched

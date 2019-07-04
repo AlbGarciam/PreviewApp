@@ -34,7 +34,7 @@ extension PlayerScreenRouter {
         
         let viewController = PlayerScreenViewController()
         let router = PlayerScreenRouter()
-        let viewModel = PlayerScreenViewModel()
+        let viewModel = PlayerScreenViewModel(repository: LocalAssetRepository())
         
         viewController.viewModel = viewModel
         
