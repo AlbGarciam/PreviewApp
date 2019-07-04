@@ -80,12 +80,12 @@ extension NowPlayingView: NowPlayingViewProtocol {
         get { return NowPlayingModel(title: titleText, subTitle: subTitleText, isCompressed: compressed) }
         set {
             nowPlayingSubTitleLabel.isHidden = newValue.subTitle.isEmpty || newValue.isCompressed
+            nowPlayingCompressedTitleLabel.isHidden = !newValue.isCompressed
+            nowPlayingTitleLabel.isHidden = newValue.isCompressed
             UIView.animate(withDuration: 0.25, delay: 0, options: .transitionCrossDissolve, animations: {
                 self.nowPlayingTitleLabel.text = newValue.title
                 self.nowPlayingSubTitleLabel.text = newValue.subTitle
                 self.nowPlayingCompressedTitleLabel.text = newValue.title
-                self.nowPlayingTitleLabel.isHidden = newValue.isCompressed
-                self.nowPlayingCompressedTitleLabel.isHidden = !newValue.isCompressed
                 self.nowPlayingStackView.layoutIfNeeded()
             }, completion: nil)
         }

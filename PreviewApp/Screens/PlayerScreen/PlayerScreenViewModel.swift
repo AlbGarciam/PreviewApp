@@ -53,6 +53,11 @@ class PlayerScreenViewModel {
         return assets[position]
     }
     
+    func assetRequested(at position: Int) {
+        guard position >= 0 && position < assets.count else { return }
+        currentAsset = assets[position]
+    }
+    
     //MARK: - Private methods
     private func nextAsset() {
         var nextAsset = assets.first

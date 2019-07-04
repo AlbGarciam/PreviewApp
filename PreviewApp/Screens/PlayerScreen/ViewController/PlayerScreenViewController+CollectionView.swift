@@ -18,6 +18,8 @@ extension PlayerScreenViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         collectionView.backgroundColor = .FinalGradient
+        collectionView.alwaysBounceVertical = true
+        collectionView.showsVerticalScrollIndicator = false
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -26,7 +28,7 @@ extension PlayerScreenViewController {
         
         collectionView.register(AssetCollectionViewCell.self, forCellWithReuseIdentifier: AssetCollectionViewCell.reuseId)
         
-        view.addSubview(collectionView)
+        view.insertSubview(collectionView, belowSubview: nowPlayingView)
         
         collectionView.topAnchor.constraint(equalTo: nowPlayingView.bottomAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -54,6 +56,6 @@ extension PlayerScreenViewController: UICollectionViewDataSource {
 
 extension PlayerScreenViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        viewModel.assetRequested(at: indexPath.item)
     }
 }
