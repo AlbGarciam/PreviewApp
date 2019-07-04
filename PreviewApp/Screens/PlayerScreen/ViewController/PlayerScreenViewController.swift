@@ -21,7 +21,7 @@ class PlayerScreenViewController: UIViewController {
     var videoPlayer: VideoPlayer?
     var nowPlayingView: NowPlayingView!
     
-    var scrollView: UIScrollView!
+    var collectionView: UICollectionView!
     
     //MARK: - Gestures
     var panGesture: UIPanGestureRecognizer!

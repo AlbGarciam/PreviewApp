@@ -14,6 +14,7 @@ extension PlayerScreenViewController {
     func configure() {
         addPlayerView()
         prepareNowPlaying()
+        prepareCollectionView()
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(onPanGesture(gesture:)))
         nowPlayingView.addGestureRecognizer(panGesture)
     }

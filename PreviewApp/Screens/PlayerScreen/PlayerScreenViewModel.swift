@@ -18,7 +18,7 @@ class PlayerScreenViewModel {
     var router: PlayerScreenRouter?
     
     //MARK: - States
-    private var assets: [Asset] {
+    var assets: [Asset] {
         return Array(AssetRepository.downloadedAssets)
     }
     private var currentAsset: Asset? {
@@ -46,6 +46,11 @@ class PlayerScreenViewModel {
     func loadVideo() {
         guard currentAsset == nil else { return }
         nextAsset()
+    }
+    
+    func asset(for position: Int) -> Asset? {
+        guard position >= 0 && position < assets.count else { return nil }
+        return assets[position]
     }
     
     //MARK: - Private methods

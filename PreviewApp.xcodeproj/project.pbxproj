@@ -34,9 +34,12 @@
 		F8849FE822CD14760040804F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FE722CD14760040804F /* NotificationManager.swift */; };
 		F8849FEB22CD26420040804F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FEA22CD26420040804F /* GradientView.swift */; };
 		F8849FED22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FEC22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift */; };
-		F8849FF122CD28F80040804F /* PlayerScreenViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FF022CD28F80040804F /* PlayerScreenViewController+ScrollView.swift */; };
+		F8849FF122CD28F80040804F /* PlayerScreenViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FF022CD28F80040804F /* PlayerScreenViewController+CollectionView.swift */; };
 		F8849FFF22CD29C80040804F /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FFC22CD29C80040804F /* NowPlayingViewController.swift */; };
 		F884A00022CD29C80040804F /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FFD22CD29C80040804F /* NowPlayingViewModel.swift */; };
+		F884A00322CE6DFD0040804F /* AssetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A00222CE6DFD0040804F /* AssetCollectionViewCell.swift */; };
+		F884A00522CE70EC0040804F /* UIImage+ImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A00422CE70EC0040804F /* UIImage+ImageSet.swift */; };
+		F884A00722CE73910040804F /* ColumnsCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A00622CE73910040804F /* ColumnsCollectionFlowLayout.swift */; };
 		F8B3CA2D22CA4EE200DB518C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B3CA2C22CA4EE200DB518C /* AppDelegate.swift */; };
 		F8B3CA3422CA4EE300DB518C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8B3CA3322CA4EE300DB518C /* Assets.xcassets */; };
 		F8B3CA3722CA4EE300DB518C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B3CA3522CA4EE300DB518C /* LaunchScreen.storyboard */; };
@@ -92,9 +95,12 @@
 		F8849FE722CD14760040804F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		F8849FEA22CD26420040804F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F8849FEC22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+NowPlayingSetup.swift"; sourceTree = "<group>"; };
-		F8849FF022CD28F80040804F /* PlayerScreenViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+ScrollView.swift"; sourceTree = "<group>"; };
+		F8849FF022CD28F80040804F /* PlayerScreenViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		F8849FFC22CD29C80040804F /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		F8849FFD22CD29C80040804F /* NowPlayingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewModel.swift; sourceTree = "<group>"; };
+		F884A00222CE6DFD0040804F /* AssetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCollectionViewCell.swift; sourceTree = "<group>"; };
+		F884A00422CE70EC0040804F /* UIImage+ImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageSet.swift"; sourceTree = "<group>"; };
+		F884A00622CE73910040804F /* ColumnsCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnsCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		F8B3CA2922CA4EE200DB518C /* PreviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PreviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B3CA2C22CA4EE200DB518C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8B3CA3322CA4EE300DB518C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 		F80C28D222CA8BC500CF3F7B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F884A00422CE70EC0040804F /* UIImage+ImageSet.swift */,
 				F80C28D322CA8BDE00CF3F7B /* UserDefaults.swift */,
 				F80C28DC22CAAF7200CF3F7B /* FileManager.swift */,
 				F8EBA07322CBA35C009FDBF9 /* UIColor+ColorSet.swift */,
@@ -188,6 +195,7 @@
 		F80C28E022CBA01900CF3F7B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F884A00822CE745F0040804F /* CustomLayouts */,
 				F8849FF222CD29970040804F /* NowPlayingView */,
 				F80C28EA22CBA0BD00CF3F7B /* CustomViews */,
 				F80C28E122CBA02300CF3F7B /* PlayerScreen */,
@@ -198,6 +206,7 @@
 		F80C28E122CBA02300CF3F7B /* PlayerScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F884A00122CE6DCD0040804F /* Cells */,
 				F80C28E222CBA03A00CF3F7B /* PlayerScreenRouter.swift */,
 				F80C28E422CBA03A00CF3F7B /* PlayerScreenViewModel.swift */,
 				F8849FEE22CD27BB0040804F /* ViewController */,
@@ -237,7 +246,7 @@
 				F80C28E322CBA03A00CF3F7B /* PlayerScreenViewController.swift */,
 				F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */,
 				F80C28ED22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift */,
-				F8849FF022CD28F80040804F /* PlayerScreenViewController+ScrollView.swift */,
+				F8849FF022CD28F80040804F /* PlayerScreenViewController+CollectionView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -250,6 +259,22 @@
 				F8849FEC22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift */,
 			);
 			path = NowPlayingView;
+			sourceTree = "<group>";
+		};
+		F884A00122CE6DCD0040804F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F884A00222CE6DFD0040804F /* AssetCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F884A00822CE745F0040804F /* CustomLayouts */ = {
+			isa = PBXGroup;
+			children = (
+				F884A00622CE73910040804F /* ColumnsCollectionFlowLayout.swift */,
+			);
+			path = CustomLayouts;
 			sourceTree = "<group>";
 		};
 		F8B3CA2022CA4EE100DB518C = {
@@ -473,10 +498,11 @@
 				F85789C622CBDC50008C9B76 /* CustomProgressBar.swift in Sources */,
 				F85789C822CBE4D3008C9B76 /* TimeInterval.swift in Sources */,
 				F8849FE822CD14760040804F /* NotificationManager.swift in Sources */,
-				F8849FF122CD28F80040804F /* PlayerScreenViewController+ScrollView.swift in Sources */,
+				F8849FF122CD28F80040804F /* PlayerScreenViewController+CollectionView.swift in Sources */,
 				F8849FE522CD11DF0040804F /* JSON.swift in Sources */,
 				F8849FEB22CD26420040804F /* GradientView.swift in Sources */,
 				F80C28DD22CAAF7200CF3F7B /* FileManager.swift in Sources */,
+				F884A00522CE70EC0040804F /* UIImage+ImageSet.swift in Sources */,
 				F80C28D422CA8BDE00CF3F7B /* UserDefaults.swift in Sources */,
 				F80C28D722CA8C4D00CF3F7B /* AssetRepository.swift in Sources */,
 				F80C28CD22CA842E00CF3F7B /* DownloadRequest.swift in Sources */,
@@ -489,11 +515,13 @@
 				F8849FED22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift in Sources */,
 				F80C28E622CBA03A00CF3F7B /* PlayerScreenRouter.swift in Sources */,
 				F8EBA07622CBA3D8009FDBF9 /* UIFont+FontSet.swift in Sources */,
+				F884A00322CE6DFD0040804F /* AssetCollectionViewCell.swift in Sources */,
 				F80C28EE22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift in Sources */,
 				F8B3CA5C22CA586400DB518C /* Asset.swift in Sources */,
 				F8B3CA2D22CA4EE200DB518C /* AppDelegate.swift in Sources */,
 				F80C28E722CBA03A00CF3F7B /* PlayerScreenViewController.swift in Sources */,
 				F8EBA07822CBA5EF009FDBF9 /* VideoPlayer.swift in Sources */,
+				F884A00722CE73910040804F /* ColumnsCollectionFlowLayout.swift in Sources */,
 				F80C28BB22CA791C00CF3F7B /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
