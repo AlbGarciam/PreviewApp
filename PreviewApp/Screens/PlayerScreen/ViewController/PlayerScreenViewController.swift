@@ -78,11 +78,16 @@ class PlayerScreenViewController: UIViewController {
 //MARK: - ViewModel communication
 protocol PlayerScreenViewControllerProtocol: class {
     func updateAsset(_ asset: Asset)
+    func updateAssets()
 }
 
 extension PlayerScreenViewController: PlayerScreenViewControllerProtocol {
     func updateAsset(_ asset: Asset) {
         nowPlayingView.update(asset: asset)
         updatePlayer(for: asset)
+    }
+    
+    func updateAssets() {
+        collectionView.reloadData()
     }
 }

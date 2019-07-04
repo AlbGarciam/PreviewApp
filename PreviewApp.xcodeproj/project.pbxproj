@@ -27,6 +27,7 @@
 		F80C28E822CBA03A00CF3F7B /* PlayerScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28E422CBA03A00CF3F7B /* PlayerScreenViewModel.swift */; };
 		F80C28EC22CBA0CE00CF3F7B /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28EB22CBA0CE00CF3F7B /* PlayerView.swift */; };
 		F80C28EE22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28ED22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift */; };
+		F8529AE722CE7A4000AC6BD7 /* DateFormatter+AssetFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8529AE622CE7A4000AC6BD7 /* DateFormatter+AssetFormat.swift */; };
 		F85789C622CBDC50008C9B76 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85789C522CBDC50008C9B76 /* CustomProgressBar.swift */; };
 		F85789C822CBE4D3008C9B76 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85789C722CBE4D3008C9B76 /* TimeInterval.swift */; };
 		F85789CA22CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */; };
@@ -88,6 +89,7 @@
 		F80C28E422CBA03A00CF3F7B /* PlayerScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScreenViewModel.swift; sourceTree = "<group>"; };
 		F80C28EB22CBA0CE00CF3F7B /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		F80C28ED22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+Autolayout.swift"; sourceTree = "<group>"; };
+		F8529AE622CE7A4000AC6BD7 /* DateFormatter+AssetFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+AssetFormat.swift"; sourceTree = "<group>"; };
 		F85789C522CBDC50008C9B76 /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
 		F85789C722CBE4D3008C9B76 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+VideoPlayer.swift"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				F80C28DC22CAAF7200CF3F7B /* FileManager.swift */,
 				F8EBA07322CBA35C009FDBF9 /* UIColor+ColorSet.swift */,
 				F8EBA07522CBA3D8009FDBF9 /* UIFont+FontSet.swift */,
+				F8529AE622CE7A4000AC6BD7 /* DateFormatter+AssetFormat.swift */,
 				F85789C722CBE4D3008C9B76 /* TimeInterval.swift */,
 			);
 			path = Utilities;
@@ -492,6 +495,7 @@
 			files = (
 				F80C28CB22CA83B900CF3F7B /* DownloadErrorResponse.swift in Sources */,
 				F884A00022CD29C80040804F /* NowPlayingViewModel.swift in Sources */,
+				F8529AE722CE7A4000AC6BD7 /* DateFormatter+AssetFormat.swift in Sources */,
 				F80C28B922CA78B200CF3F7B /* Payload.swift in Sources */,
 				F85789CA22CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift in Sources */,
 				F80C28C922CA82A100CF3F7B /* DownloadSession.swift in Sources */,

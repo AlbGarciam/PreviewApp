@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         let playerScreen = application.keyWindow?.rootViewController as? PlayerScreenViewController
-        playerScreen?.viewModel.loadVideo()
+        playerScreen?.viewModel.reloadDownloadedVideos()
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {

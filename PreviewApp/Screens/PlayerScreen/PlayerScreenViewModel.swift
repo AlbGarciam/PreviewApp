@@ -18,9 +18,7 @@ class PlayerScreenViewModel {
     var router: PlayerScreenRouter?
     
     //MARK: - States
-    var assets: [Asset] {
-        return Array(AssetRepository.downloadedAssets)
-    }
+    private(set) var assets: [Asset] = []
     private var currentAsset: Asset? {
         didSet {
             if let currentAsset = currentAsset {
@@ -46,6 +44,12 @@ class PlayerScreenViewModel {
     func loadVideo() {
         guard currentAsset == nil else { return }
         nextAsset()
+    }
+    
+    func reloadDownloadedVideos() {
+        assets = Array(AssetRepository.downloadedAssets).sorted()
+        view?.updateAssets()
+        loadVideo()
     }
     
     func asset(for position: Int) -> Asset? {
