@@ -1,5 +1,5 @@
 //
-//  NotificationManager.swift
+//  NotificationHandler.swift
 //  PreviewApp
 //
 //  Created by Alberto García-Muñoz on 03/07/2019.
@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-struct NotificationManager {
+struct NotificationHandler {
     static func requestPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (access, error) in
             print("Permission granted: \(access)")
