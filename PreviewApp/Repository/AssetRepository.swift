@@ -55,7 +55,7 @@ struct AssetRepository {
                                subTitle: asset.subTitle,
                                resource: asset.resource,
                                filename: filename)
-        UserDefaults.standard.saveInSet(value: localAsset, forKey:  UserDefaultsKeys.playlist)
+        UserDefaults.standard.saveInSet(value: localAsset, forKey:  UserDefaultsKeys.downloadedAssets)
         // Notify
         
     }

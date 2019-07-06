@@ -41,6 +41,14 @@ class AssetTests: XCTestCase {
         XCTAssertEqual(asset.subTitle, decoded!.subTitle)
         XCTAssertEqual(asset.resource, decoded!.resource)
         XCTAssertEqual(asset.filename, decoded!.filename)
+        XCTAssertEqual(Int(asset.insertDate.timeIntervalSince1970),
+                       Int(decoded!.insertDate.timeIntervalSince1970))
     }
     
+    func testAssetsAreOrderedByDate() {
+        let olderAsset = Asset(id: "Test2", title: "test2", subTitle: nil,
+                               resource: testUrl, filename: nil, insertDate: Date(timeIntervalSince1970: 0))
+        
+        XCTAssertLessThan(olderAsset, asset)
+    }
 }

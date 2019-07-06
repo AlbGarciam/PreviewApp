@@ -56,7 +56,7 @@ class PlayerScreenViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.loadVideo()
+        viewModel.loadVideos()
     }
     
     //MARK: - UI private methods
@@ -66,7 +66,7 @@ class PlayerScreenViewController: UIViewController {
             videoPlayer = VideoPlayer(urlAsset: localFile, view: playerView)
             videoPlayer?.delegate = self
         } else {
-            viewModel.onPlayerFailed()
+            viewModel.onPlayerFailed(asset: asset)
         }
     }
     
@@ -88,6 +88,7 @@ extension PlayerScreenViewController: PlayerScreenViewControllerProtocol {
     }
     
     func updateAssets() {
+        collectionView.layoutIfNeeded()
         collectionView.reloadData()
     }
 }

@@ -31,7 +31,7 @@ struct NotificationManager {
         switch application.applicationState {
         case .active:
             let playerScreen = application.keyWindow?.rootViewController as? PlayerScreenViewController
-            playerScreen?.viewModel.reloadDownloadedVideos()
+            playerScreen?.viewModel.loadVideos()
         default:
             throwPayloadNotification()
         }

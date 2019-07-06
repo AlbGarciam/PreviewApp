@@ -29,6 +29,9 @@
 		F80C28EE22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28ED22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift */; };
 		F8529AE722CE7A4000AC6BD7 /* DateFormatter+AssetFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8529AE622CE7A4000AC6BD7 /* DateFormatter+AssetFormat.swift */; };
 		F8529AE922CE819400AC6BD7 /* LocalAssetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8529AE822CE819400AC6BD7 /* LocalAssetRepository.swift */; };
+		F8529AEC22D0DA6300AC6BD7 /* LocalAssetRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8529AEB22D0DA6300AC6BD7 /* LocalAssetRepositoryProtocol.swift */; };
+		F8529AF022D0E18F00AC6BD7 /* PlayerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8529AEF22D0E18F00AC6BD7 /* PlayerViewModelTests.swift */; };
+		F8529AF222D0E2F600AC6BD7 /* LocalAssetRepositoryFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8529AF122D0E2F600AC6BD7 /* LocalAssetRepositoryFake.swift */; };
 		F85789C622CBDC50008C9B76 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85789C522CBDC50008C9B76 /* CustomProgressBar.swift */; };
 		F85789C822CBE4D3008C9B76 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85789C722CBE4D3008C9B76 /* TimeInterval.swift */; };
 		F85789CA22CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */; };
@@ -92,6 +95,9 @@
 		F80C28ED22CBA14B00CF3F7B /* PlayerScreenViewController+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+Autolayout.swift"; sourceTree = "<group>"; };
 		F8529AE622CE7A4000AC6BD7 /* DateFormatter+AssetFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+AssetFormat.swift"; sourceTree = "<group>"; };
 		F8529AE822CE819400AC6BD7 /* LocalAssetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAssetRepository.swift; sourceTree = "<group>"; };
+		F8529AEB22D0DA6300AC6BD7 /* LocalAssetRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAssetRepositoryProtocol.swift; sourceTree = "<group>"; };
+		F8529AEF22D0E18F00AC6BD7 /* PlayerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModelTests.swift; sourceTree = "<group>"; };
+		F8529AF122D0E2F600AC6BD7 /* LocalAssetRepositoryFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAssetRepositoryFake.swift; sourceTree = "<group>"; };
 		F85789C522CBDC50008C9B76 /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
 		F85789C722CBE4D3008C9B76 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+VideoPlayer.swift"; sourceTree = "<group>"; };
@@ -193,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				F80C28D622CA8C4D00CF3F7B /* AssetRepository.swift */,
-				F8529AE822CE819400AC6BD7 /* LocalAssetRepository.swift */,
+				F8529AEA22D0DA4A00AC6BD7 /* LocalAssetRepository */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -228,6 +234,24 @@
 				F8849FEA22CD26420040804F /* GradientView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		F8529AEA22D0DA4A00AC6BD7 /* LocalAssetRepository */ = {
+			isa = PBXGroup;
+			children = (
+				F8529AE822CE819400AC6BD7 /* LocalAssetRepository.swift */,
+				F8529AEB22D0DA6300AC6BD7 /* LocalAssetRepositoryProtocol.swift */,
+			);
+			path = LocalAssetRepository;
+			sourceTree = "<group>";
+		};
+		F8529AEE22D0E17200AC6BD7 /* PlayerViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F8529AEF22D0E18F00AC6BD7 /* PlayerViewModelTests.swift */,
+				F8529AF122D0E2F600AC6BD7 /* LocalAssetRepositoryFake.swift */,
+			);
+			path = PlayerViewModel;
 			sourceTree = "<group>";
 		};
 		F85789C222CBDA17008C9B76 /* Player */ = {
@@ -325,6 +349,7 @@
 		F8B3CA4022CA4EE300DB518C /* PreviewAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				F8529AEE22D0E17200AC6BD7 /* PlayerViewModel */,
 				F80C28C222CA7CE500CF3F7B /* Resources */,
 				F80C28C522CA7D1C00CF3F7B /* PayloadTests.swift */,
 				F80C28DE22CB9E7500CF3F7B /* AssetMapperTests.swift */,
@@ -518,6 +543,7 @@
 				F80C28BE22CA7B5600CF3F7B /* AssetMapper.swift in Sources */,
 				F80C28EC22CBA0CE00CF3F7B /* PlayerView.swift in Sources */,
 				F80C28E822CBA03A00CF3F7B /* PlayerScreenViewModel.swift in Sources */,
+				F8529AEC22D0DA6300AC6BD7 /* LocalAssetRepositoryProtocol.swift in Sources */,
 				F80C28C122CA7B8000CF3F7B /* Mapper.swift in Sources */,
 				F8849FED22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift in Sources */,
 				F80C28E622CBA03A00CF3F7B /* PlayerScreenRouter.swift in Sources */,
@@ -539,8 +565,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F80C28B722CA771F00CF3F7B /* Utilities.swift in Sources */,
+				F8529AF222D0E2F600AC6BD7 /* LocalAssetRepositoryFake.swift in Sources */,
 				F80C28DF22CB9E7500CF3F7B /* AssetMapperTests.swift in Sources */,
 				F8B3CA6022CA5A9100DB518C /* AssetTests.swift in Sources */,
+				F8529AF022D0E18F00AC6BD7 /* PlayerViewModelTests.swift in Sources */,
 				F80C28C622CA7D1C00CF3F7B /* PayloadTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

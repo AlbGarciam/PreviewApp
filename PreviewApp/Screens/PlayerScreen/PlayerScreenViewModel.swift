@@ -18,7 +18,7 @@ class PlayerScreenViewModel {
     var router: PlayerScreenRouter?
     
     //MARK: - States
-    private(set) var assets: [Asset] = []
+    var assets: [Asset] { return repository.assets }
     private var currentAsset: Asset? {
         didSet {
             if let currentAsset = currentAsset {
@@ -34,7 +34,10 @@ class PlayerScreenViewModel {
         self.repository = repository
     }
     
-    func onPlayerFailed() {
+    func onPlayerFailed(asset: Asset? = nil) {
+        if let asset = asset {
+            repository.removeFailedAsset(asset: asset)
+        }
         nextAsset()
     }
     
@@ -46,15 +49,13 @@ class PlayerScreenViewModel {
         nextAsset()
     }
     
-    func loadVideo() {
+    /// This method will reload video list and start playing the next song if possible
+    func loadVideos() {
+        // 1. reload UI's video list
+        view?.updateAssets()
+        // 2. Play item if it is not playing
         guard currentAsset == nil else { return }
         nextAsset()
-    }
-    
-    func reloadDownloadedVideos() {
-        assets = repository.assets
-        view?.updateAssets()
-        loadVideo()
     }
     
     func asset(for position: Int) -> Asset? {

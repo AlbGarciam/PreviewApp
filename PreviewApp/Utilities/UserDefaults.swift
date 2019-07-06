@@ -9,7 +9,7 @@
 import Foundation
 
 struct UserDefaultsKeys {
-    static let playlist: String = "cached_items"
+    static let downloadedAssets: String = "cached_items"
     static let pendingDownloads: String = "pending_items"
 }
 
