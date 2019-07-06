@@ -61,7 +61,9 @@ extension Asset: Codable {
         let resource = try container.decode(URL.self, forKey: .resource)
         let filename = try container.decodeIfPresent(String.self, forKey: .filename)
         let insertDateStr = try container.decode(String.self, forKey: .date)
-        let insertDate = DateFormatter.assetFormat.date(from: insertDateStr)!
+        guard let insertDate = DateFormatter.assetFormat.date(from: insertDateStr) else {
+            throw DomainErrors.cannotParse
+        }
         self.init(id: id, title: title, subTitle: subtitle, resource: resource, filename: filename, insertDate: insertDate)
     }
     

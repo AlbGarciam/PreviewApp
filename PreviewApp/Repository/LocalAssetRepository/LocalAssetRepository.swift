@@ -34,10 +34,12 @@ extension LocalAssetRepository: LocalAssetRepositoryProtocol {
     
     func removeFailedAsset(asset: Asset) {
         if let localFile = asset.localFile, fileManager.fileExists(atPath: localFile.absoluteString) {
-            do {
-                try fileManager.removeItem(at: localFile)
-            } catch {
-                NSLog("Failed when removing file from: \(localFile.absoluteString). Reason: \(error.localizedDescription)")
+            DispatchQueue.global().async {[weak self] in
+                do {
+                    try self?.fileManager.removeItem(at: localFile)
+                } catch {
+                    NSLog("Failed when removing file from: \(localFile.absoluteString). Reason: \(error.localizedDescription)")
+                }
             }
         }
         userDefaults.removeFromSet(value: asset, forKey: UserDefaultsKeys.downloadedAssets)
