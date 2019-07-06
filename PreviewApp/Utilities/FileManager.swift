@@ -9,13 +9,13 @@
 import Foundation
 
 extension FileManager {
-    var documentsURL: URL {
-        let docs = urls(for: .documentDirectory, in: .userDomainMask)
-        return docs.first! // iOS always has documents path
+    var cacheURL: URL {
+        let docs = urls(for: .cachesDirectory, in: .userDomainMask)
+        return docs.first! // iOS always has cache path
     }
     
-    var documentsPath: String {
-        var docsStr = documentsURL.absoluteString
+    var cachePath: String {
+        var docsStr = cacheURL.absoluteString
         if docsStr.last != "/" {
             docsStr.append("/")
         }
@@ -35,7 +35,7 @@ extension FileManager {
     }
     
     func getDestinationPath(for resourceName: String, filetype: String) -> URL? {
-        let pathString = "\(documentsPath)\(resourceName).\(filetype)"
+        let pathString = "\(cachePath)\(resourceName).\(filetype)"
         return URL(string: pathString)
     }
 }

@@ -18,7 +18,7 @@ struct Asset {
     
     var localFile: URL? {
         guard let filename = filename else { return nil }
-        return URL(fileURLWithPath: filename, relativeTo: FileManager.default.documentsURL)
+        return URL(fileURLWithPath: filename, relativeTo: FileManager.default.cacheURL)
     }
 
     init(id: String, title: String, subTitle: String? = nil,
