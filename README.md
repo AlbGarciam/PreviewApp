@@ -33,4 +33,5 @@ In order to be able to use view videos, you should use a push notification. You 
 This notification will trigger a job to download all items on playlist and store them on Documents directory. Once this task is finished, it will send a notification to the user.
 
 In order to send notifications, you can use [this](https://github.com/onmyway133/PushNotifications) project.
+
 ![](GifSample.gif)
