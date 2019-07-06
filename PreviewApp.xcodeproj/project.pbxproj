@@ -36,7 +36,7 @@
 		F85789C822CBE4D3008C9B76 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85789C722CBE4D3008C9B76 /* TimeInterval.swift */; };
 		F85789CA22CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */; };
 		F8849FE522CD11DF0040804F /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FE422CD11DF0040804F /* JSON.swift */; };
-		F8849FE822CD14760040804F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FE722CD14760040804F /* NotificationManager.swift */; };
+		F8849FE822CD14760040804F /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FE722CD14760040804F /* NotificationHandler.swift */; };
 		F8849FEB22CD26420040804F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FEA22CD26420040804F /* GradientView.swift */; };
 		F8849FED22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FEC22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift */; };
 		F8849FF122CD28F80040804F /* PlayerScreenViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8849FF022CD28F80040804F /* PlayerScreenViewController+CollectionView.swift */; };
@@ -102,7 +102,7 @@
 		F85789C722CBE4D3008C9B76 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		F85789C922CBF5BE008C9B76 /* PlayerScreenViewController+VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+VideoPlayer.swift"; sourceTree = "<group>"; };
 		F8849FE422CD11DF0040804F /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		F8849FE722CD14760040804F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F8849FE722CD14760040804F /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		F8849FEA22CD26420040804F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F8849FEC22CD27630040804F /* PlayerScreenViewController+NowPlayingSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+NowPlayingSetup.swift"; sourceTree = "<group>"; };
 		F8849FF022CD28F80040804F /* PlayerScreenViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerScreenViewController+CollectionView.swift"; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 		F8849FE622CD14640040804F /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				F8849FE722CD14760040804F /* NotificationManager.swift */,
+				F8849FE722CD14760040804F /* NotificationHandler.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -529,7 +529,7 @@
 				F80C28C922CA82A100CF3F7B /* DownloadSession.swift in Sources */,
 				F85789C622CBDC50008C9B76 /* CustomProgressBar.swift in Sources */,
 				F85789C822CBE4D3008C9B76 /* TimeInterval.swift in Sources */,
-				F8849FE822CD14760040804F /* NotificationManager.swift in Sources */,
+				F8849FE822CD14760040804F /* NotificationHandler.swift in Sources */,
 				F8849FF122CD28F80040804F /* PlayerScreenViewController+CollectionView.swift in Sources */,
 				F8849FE522CD11DF0040804F /* JSON.swift in Sources */,
 				F8849FEB22CD26420040804F /* GradientView.swift in Sources */,
