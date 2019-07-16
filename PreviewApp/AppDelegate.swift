@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        NSLog("Remote notification = %@", userInfo)
+        os_log("Remote notification = %@", userInfo)
         guard let notification = userInfo as? JSON else { return completionHandler(.noData) }
         NotificationHandler.handleNotification(notification: notification, completion: completionHandler)
     }
@@ -37,10 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let tokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-        print("Device Token: \(tokenString)") // Once backend is ready, send token to a backend
+        os_log("Device Token: %@", tokenString) // Once backend is ready, send token to a backend
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        NSLog("Remote notification register failed = %@", error.localizedDescription)
+        os_log("Remote notification register failed = %@", error.localizedDescription)
     }
 }
