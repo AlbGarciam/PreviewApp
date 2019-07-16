@@ -35,3 +35,10 @@ This notification will trigger a job to download all items on playlist and store
 In order to send notifications, you can use [this](https://github.com/onmyway133/PushNotifications) project.
 
 ![](GifSample.gif)
+
+
+## How to test
+
+In order to test this demo, you'll need to send a push notification. If you don't have an Apple Developer membership you'll not be able to send a notification. 
+
+After that, once app is launched, you'll be able to see a log on console app which prompts the notification token. You can use this token and the app linked before to send a push notification to the device. Note that you'll need push notification certificate and password for APNS 
