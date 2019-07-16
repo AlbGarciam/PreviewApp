@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EDFF6A922DDFD9C004BBCF4 /* DomainErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFF6A822DDFD9C004BBCF4 /* DomainErrors.swift */; };
 		F80C28B722CA771F00CF3F7B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28B622CA771F00CF3F7B /* Utilities.swift */; };
 		F80C28B922CA78B200CF3F7B /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28B822CA78B200CF3F7B /* Payload.swift */; };
 		F80C28BB22CA791C00CF3F7B /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C28BA22CA791C00CF3F7B /* Playlist.swift */; };
@@ -74,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4EDFF6A822DDFD9C004BBCF4 /* DomainErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomainErrors.swift; sourceTree = "<group>"; };
 		F80C28B622CA771F00CF3F7B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F80C28B822CA78B200CF3F7B /* Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		F80C28BA22CA791C00CF3F7B /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 			children = (
 				F80C28BC22CA7B4000CF3F7B /* Mappers */,
 				F8B3CA5B22CA586400DB518C /* Asset.swift */,
+				4EDFF6A822DDFD9C004BBCF4 /* DomainErrors.swift */,
 				F80C28B822CA78B200CF3F7B /* Payload.swift */,
 				F80C28BA22CA791C00CF3F7B /* Playlist.swift */,
 				F8849FE422CD11DF0040804F /* JSON.swift */,
@@ -539,6 +542,7 @@
 				F80C28D722CA8C4D00CF3F7B /* AssetRepository.swift in Sources */,
 				F80C28CD22CA842E00CF3F7B /* DownloadRequest.swift in Sources */,
 				F8EBA07422CBA35C009FDBF9 /* UIColor+ColorSet.swift in Sources */,
+				4EDFF6A922DDFD9C004BBCF4 /* DomainErrors.swift in Sources */,
 				F8849FFF22CD29C80040804F /* NowPlayingViewController.swift in Sources */,
 				F80C28BE22CA7B5600CF3F7B /* AssetMapper.swift in Sources */,
 				F80C28EC22CBA0CE00CF3F7B /* PlayerView.swift in Sources */,
